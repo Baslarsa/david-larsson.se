@@ -1,13 +1,13 @@
 import { Switch } from "@headlessui/react";
 import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
 import { useEffect, useState } from "react";
-import { NavLink, Outlet, useMatch } from "react-router-dom";
+import { NavLink, useMatch } from "react-router-dom";
 import { MENU_ITEMS } from "../../routes/menuItems";
 import classNames from "../../utils/classNames";
-import SiteLogo from "../svg/SiteLogo";
-import LinkedinIcon from "../svg/Linkedin";
-import GithubIcon from "../svg/GithubIcon";
 import AnimatedOutlet from "../AnimatedOutlet";
+import GithubIcon from "../svg/GithubIcon";
+import LinkedinIcon from "../svg/Linkedin";
+import SiteLogo from "../svg/SiteLogo";
 
 const Layout = () => {
   return (
