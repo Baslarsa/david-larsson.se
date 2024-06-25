@@ -103,7 +103,7 @@ const NavItem = ({
             match
               ? "stroke-black dark:stroke-white"
               : "stroke-black/50 dark:stroke-white/50",
-            "transition-colors"
+            "transition-colors hover:stroke-black"
           )}
         />
         <span
