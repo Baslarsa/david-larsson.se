@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import PageTitle from "../components/text/PageTitle";
 import Paragraph from "../components/text/Paragraph";
+import AudioPlayer from "../components/AudioPlayer";
 const About = () => {
   return (
     <motion.div
@@ -44,7 +45,11 @@ const About = () => {
           better.
         </Paragraph>
       </div>
-      <div className="bg-black w-1/3 h-full bg-[url('/images/office.jpg')] bg-cover flex justify-center items-center"></div>
+      <div className="bg-black w-1/3 h-full bg-[url('/images/office.jpg')] bg-cover">
+        <div className="bg-black/70 h-full w-full flex justify-center items-center">
+          <AudioPlayer />
+        </div>
+      </div>
     </motion.div>
   );
 };
