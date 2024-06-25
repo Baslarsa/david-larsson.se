@@ -3,6 +3,7 @@ import { PauseCircleIcon } from "@heroicons/react/16/solid";
 import { useEffect, useRef, useState } from "react";
 import WaveSurfer from "wavesurfer.js";
 import classNames from "../utils/classNames";
+import constants from "../utils/constants";
 
 const AudioPlayer = () => {
   const waveSurferRef = useRef<WaveSurfer>();
@@ -22,8 +23,8 @@ const AudioPlayer = () => {
       cursorWidth: 1,
       backend: "MediaElement", // Ensures the use of HTML5 Audio
     });
-
-    waveSurferRef.current.load("/0_emotions.mp3");
+    console.log(constants.audioFileUrl);
+    waveSurferRef.current.load(constants.audioFileUrl);
     waveSurferRef.current.on("play", () => setIsPlaying(true));
     waveSurferRef.current.on("pause", () => setIsPlaying(false));
     waveSurferRef.current.on("click", () => setIsPlaying(true));
