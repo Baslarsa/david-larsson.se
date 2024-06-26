@@ -10,6 +10,9 @@ const AudioPlayer = () => {
   const [playerReady, setPlayerReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  //Check if is mobile
+  const isMobile = constants.isMobile;
+
   // Initialize Wavesurfer
   useEffect(() => {
     waveSurferRef.current = WaveSurfer.create({
@@ -68,14 +71,14 @@ const AudioPlayer = () => {
             <PauseCircleIcon
               className={classNames(
                 "w-20 h-20 transform -translate-y-5 hover:text-white transition-colors",
-                isPlaying ? "text-white" : "text-transparent"
+                isPlaying || isMobile ? "text-white" : "text-transparent"
               )}
             />
           ) : (
             <PlayCircleIcon
               className={classNames(
                 "w-20 h-20 transform -translate-y-5 hover:text-white transition-colors",
-                isPlaying ? "text-white" : "text-transparent"
+                isPlaying || isMobile ? "text-white" : "text-transparent"
               )}
             />
           )}

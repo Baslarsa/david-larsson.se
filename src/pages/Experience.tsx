@@ -63,14 +63,13 @@ const Experience = () => {
   return (
     <motion.div
       initial={{ y: "100%", opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: "-100%", opacity: 0 }}
-      transition={{ ease: "easeIn" }}
-      className="dark:text-white text-black h-full w-full flex"
+      animate={{ y: 0, opacity: 1, transition: { duration: 0.8 } }}
+      exit={{ y: "-100%", opacity: 0, transition: { duration: 0.5 } }}
+      className="dark:text-white text-black h-full w-full flex md:flex-row flex-col overflow-y-auto"
     >
       <div
         className={classNames(
-          "relative w-2/5 dark:bg-black bg-white bg-[url('/images/maps.jpg')] bg-cover bg-center"
+          "relative md:w-2/5 w-full min-h-48 dark:bg-black bg-white bg-[url('/images/maps.jpg')] bg-cover bg-center"
         )}
       >
         <div className="absolute inset-0 bg-white/50 dark:bg-black/50 md:px-16 md:py-12 px-8 py-6">
@@ -79,7 +78,11 @@ const Experience = () => {
           <PageTitle title="done" />
         </div>
       </div>
-      <div className={classNames("w-3/5 h-full px-6 py-6 flex flex-col")}>
+      <div
+        className={classNames(
+          "md:w-3/5 w-full h-full md:px-6 md:py-6 py-2 px-2 flex flex-col"
+        )}
+      >
         <div className={classNames("w-full py-4 px-4 flex items-center gap-4")}>
           {tabs.map((tab) => {
             const isActive = tab.name === currentTab.name;
@@ -102,22 +105,31 @@ const Experience = () => {
             );
           })}
         </div>
-        <div
-          className={classNames(
-            "flex-1 py-4 px-4 bg-white dark:bg-black flex flex-col gap-4"
-          )}
-        >
-          {currentTab.items.map((item) => {
-            return (
-              <ExpandableRow
-                key={item.title}
-                item={item}
-                onSelect={setSelectedRow}
-                selectedTitle={selectedRow}
-              />
-            );
-          })}
-        </div>
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.2, delay: 0.3 } }}
+            exit={{ opacity: 0, transition: { duration: 0.2 } }}
+            key={currentTab.name}
+          >
+            <div
+              className={classNames(
+                "flex-1 py-4 px-4 bg-white dark:bg-black flex flex-col gap-4"
+              )}
+            >
+              {currentTab.items.map((item) => {
+                return (
+                  <ExpandableRow
+                    key={item.title}
+                    item={item}
+                    onSelect={setSelectedRow}
+                    selectedTitle={selectedRow}
+                  />
+                );
+              })}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </motion.div>
   );
@@ -144,7 +156,7 @@ const ExpandableRow = ({
     <div
       onClick={handleSelectRow}
       className={classNames(
-        "cursor-pointer hover:bg-offWhite dark:hover:bg-offBlack py-2 px-4",
+        "cursor-pointer hover:bg-offWhite dark:hover:bg-offBlack py-2 px-4 relative",
         isOpen && "bg-offWhite dark:bg-offBlack"
       )}
     >
@@ -175,12 +187,16 @@ const ExpandableRow = ({
         {isOpen && (
           <motion.div
             key={item.title}
-            className="p-4"
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
-            exit={{ height: 0 }}
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { opacity: 1, height: "auto" },
+              collapsed: { opacity: 0, height: 0 },
+            }}
+            transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
-            {item.description}
+            <div className="p-4">{item.description}</div>
           </motion.div>
         )}
       </AnimatePresence>

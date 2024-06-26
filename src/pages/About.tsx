@@ -6,10 +6,9 @@ const About = () => {
   return (
     <motion.div
       initial={{ y: "100%", opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: "-100%", opacity: 0 }}
-      transition={{ ease: "easeIn" }}
-      className="dark:text-white text-black h-full w-full flex"
+      animate={{ y: 0, opacity: 1, transition: { duration: 0.8 } }}
+      exit={{ y: "-100%", opacity: 0, transition: { duration: 0.5 } }}
+      className="dark:text-white text-black h-full w-full flex md:flex-row flex-col overflow-y-auto"
     >
       <div className="flex-1 md:px-16 md:py-12 px-8 py-6 flex flex-col">
         <PageTitle title="About" />
@@ -45,8 +44,8 @@ const About = () => {
           better.
         </Paragraph>
       </div>
-      <div className="bg-black w-1/3 h-full bg-[url('/images/office.jpg')] bg-cover">
-        <div className="bg-black/70 h-full w-full flex justify-center items-center">
+      <div className="bg-black md:w-1/3 w-full h-full bg-[url('/images/office.jpg')] bg-cover">
+        <div className="bg-black/70 h-full w-full flex justify-center items-center py-20">
           <AudioPlayer />
         </div>
       </div>
