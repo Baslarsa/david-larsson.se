@@ -11,6 +11,10 @@ const port = 3001;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get("/api", (req, res) => {
+  res.send("Hello this is the API calling!");
+});
+
 app.post("/api/send-email", async (req, res) => {
   const { name, email, message } = req.body;
 
