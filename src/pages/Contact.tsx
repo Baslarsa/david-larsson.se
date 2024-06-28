@@ -5,10 +5,49 @@ import TextArea from "../components/input/TextArea";
 import PrimaryButton from "../components/button/PrimaryButton";
 import { useState } from "react";
 import Paragraph from "../components/text/Paragraph";
+import constants from "../utils/constants";
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [buttonText, setButtonText] = useState("Send");
+
+  const clearForm = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
+  const handleSendEmail = () => {
+    if (!name || !email || !message) {
+      return;
+    }
+    console.log(constants.emailEndpoint);
+    setButtonText("Sending...");
+    fetch(constants.emailEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        setButtonText("Email sent!");
+      })
+      .catch((error) => {
+        setButtonText("Cound not send email");
+        console.error("Error:", error);
+      });
+
+    clearForm();
+  };
+
   return (
     <motion.div
       initial={{ y: "100%", opacity: 0 }}
@@ -32,7 +71,7 @@ const Contact = () => {
             <TextField title="Name" value={name} onChange={setName} />
             <TextField title="Email" value={email} onChange={setEmail} />
             <TextArea title="Message" value={message} onChange={setMessage} />
-            <PrimaryButton label="Send" onClick={() => {}} />
+            <PrimaryButton label={buttonText} onClick={handleSendEmail} />
           </div>
         </div>
       </div>
