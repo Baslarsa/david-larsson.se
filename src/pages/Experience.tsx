@@ -23,18 +23,25 @@ const tabs: Tab[] = [
     href: "#",
     items: [
       {
-        title: "Frontend Developer",
-        organization: "Vässla Micromobility",
-        description:
-          "Highschool education on the technical program. Alot of construction engineering, CAD, auto-CAD and other technical stuff. Also got basic learnings about industrial machinery and CNC programming. This education got me into the CNC-Operator profession. ",
-        dates: "2020-2021",
-      },
-      {
         title: "Frontend/Fullstack/UI Developer",
         organization: "Nenda TV",
         description:
-          "Highschool education on the technical program. Alot of construction engineering, CAD, auto-CAD and other technical stuff. Also got basic learnings about industrial machinery and CNC programming. This education got me into the CNC-Operator profession. ",
-        dates: "2020-2021",
+          "Frontend Developer and UI Designer owning the design process, and frontend development in a team of three. Nenda creates streaming and digital signage solutions for businesses like bars, restaurants, hotels and other public facing TV-screens. Tech at Nenda: React/Typescript, Material UI, Node.js, MongoDB, Mongoose, Redux Toolkit, Azure etc.",
+        dates: "Feb 2023 - current",
+      },
+      {
+        title: "Frontend Developer",
+        organization: "Vässla Micromobility",
+        description:
+          "Worked cross-functionally at the start in a team of three and ended up in a team of 9. Built and maintained a e-commerce website for medium sized business and also created our own ERP system to manage the operations of e-bike subscriptions. Tech: Next.js/Typescript, TailwindCSS, DatoCMS, GraphQL, Node.js, Postgres, Azure",
+        dates: " Aug 2021 - Feb 2023",
+      },
+      {
+        title: "Fullstack Internship",
+        organization: "Epidemic Sound",
+        description:
+          "React-based development in a full-stack team called Distribution. Was part of building their main application for packaging and maintaining music distribution. Tech: React, Proptypes, GCP, Styled Components, @emotion.",
+        dates: "Feb 2021 - Jul 2021",
       },
     ],
   },
@@ -43,16 +50,18 @@ const tabs: Tab[] = [
     href: "#",
     items: [
       {
-        title: "Education 1",
-        organization: "Organization 1",
-        description: "Education 1 description",
-        dates: "2020-2021",
+        title: "Frontend Development",
+        organization: "IT-Högskolan, Stockholm",
+        description:
+          "2 years of frontend development, including Javascript, HTML, CSS, React, Typescript, UX/UI design, SQL, Node.js, Git, CMS and more.",
+        dates: "2019-2021",
       },
       {
-        title: "Education 2",
-        organization: "Organization 2",
-        description: "Education 2 description",
-        dates: "2020-2021",
+        title: "Applied Internet of Things",
+        organization: "Linnéuniversitetet, Växjö",
+        description:
+          "Summer course in IoT working practically with a microcontroller (LoPy 4 & MicroPython) and sensors to learn the basics and how to utilize it with the cloud.",
+        dates: "2020-2020",
       },
     ],
   },

@@ -26,7 +26,6 @@ const AudioPlayer = () => {
       cursorWidth: 1,
       backend: "MediaElement", // Ensures the use of HTML5 Audio
     });
-    console.log(constants.audioFileUrl);
     waveSurferRef.current.load(constants.audioFileUrl);
     waveSurferRef.current.on("play", () => setIsPlaying(true));
     waveSurferRef.current.on("pause", () => setIsPlaying(false));
@@ -35,6 +34,7 @@ const AudioPlayer = () => {
       setPlayerReady(true);
     });
 
+    // Clean up
     return () => {
       waveSurferRef.current?.destroy();
     };

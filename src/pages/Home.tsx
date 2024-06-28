@@ -32,13 +32,13 @@ const Home = () => {
           exit={{ x: "-50%", transition: { duration: 0.5 } }}
         >
           <div className="w-full h-full flex">
-            <div className="absolute bottom-5 left-5 md:w-2/3 w-screen z-[999] dark:text-white text-black">
+            <div className="absolute bottom-5 left-5 md:w-2/3 w-screen z-10 py-3 dark:text-white text-black bg-white md:bg-transparent dark:bg-black">
               <p className="font-semibold">[d-aa-v-EE-d LARH-suhn]</p>
               <p className="font-light">
                 <i>
                   a creative frontend developer and general "know a little about
-                  alot" that fancies design. It also enjoy music, sports and
-                  food.
+                  alot" that fancies design. <br />
+                  It also enjoy music, sports and food.
                 </i>
               </p>
             </div>
