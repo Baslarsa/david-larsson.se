@@ -1,6 +1,8 @@
 {
-  "version": 2,
-  "builds": [{ "src": "*.cjs,*.js,*.ts,*.tsx", "use": "@vercel/node" }],
-  "routes": [{ "src": "/.*", "dest": "/" }],
-  "regions": ["sfo1"]
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ]
 }
