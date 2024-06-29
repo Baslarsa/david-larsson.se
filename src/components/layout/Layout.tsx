@@ -24,7 +24,7 @@ const Layout = () => {
           </div>
         </div>
         <div className="flex h-20 w-full flex-1">
-          <div className="flex-1 bg-offWhite dark:bg-offBlack overflow-hidden">
+          <div className="flex-1 bg-offWhite dark:bg-offBlack overflow-y-auto overflow-x-hidden">
             <AnimatedOutlet />
           </div>
           <div className="w-20 h-full self-end md:block hidden"></div>
@@ -54,7 +54,7 @@ const MobileNav = () => {
   return (
     <div
       className={classNames(
-        "md:hidden fixed right-0 left-0 bottom-0 h-24 dark:bg-black bg-white flex items-center gap-4 justify-between"
+        "md:hidden fixed right-0 left-0 bottom-0 py-6 dark:bg-black bg-white flex items-center gap-4 justify-between"
       )}
     >
       {menuItems.map((item) => (
@@ -68,7 +68,7 @@ const NavIconList = () => {
   const menuItems = MENU_ITEMS;
 
   return (
-    <div className="w-full flex flex-col items-center gap-6">
+    <div className="w-full py-6 flex flex-col items-center gap-6">
       {menuItems.map((item) => (
         <NavItem key={item.name} item={item} />
       ))}
@@ -88,7 +88,7 @@ const NavItem = ({
       to={item.path}
       className={classNames(
         match ? "text-primary" : "text-black/50",
-        "w-full h-10 flex items-center justify-center"
+        "w-full md:h-10 h-6 flex items-center justify-center"
       )}
     >
       <div

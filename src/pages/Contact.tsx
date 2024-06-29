@@ -70,7 +70,7 @@ const Contact = () => {
       animate={{ y: 0, opacity: 1, transition: { duration: 0.8 } }}
       exit={{ y: "100%", opacity: 0, transition: { duration: 0.5 } }}
       transition={{ ease: "easeIn" }}
-      className="dark:text-white text-black h-full w-full"
+      className="dark:text-white text-black h-full w-full overflow-y-auto pb-20"
     >
       <div className="w-full h-full md:px-16 md:py-12 px-8 py-6 flex md:flex-row flex-col">
         <div className="md:w-1/2 w-full">
