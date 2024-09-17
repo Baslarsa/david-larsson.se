@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { valueMaxDecimals } from "../../utils/number";
 import TextInput from "../input/TextInput";
-import Paragraph from "../text/Paragraph";
 import PrimaryButton from "../button/PrimaryButton";
 type FretData = {
   fretNumber: number;
