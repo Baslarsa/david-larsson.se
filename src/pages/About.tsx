@@ -32,12 +32,14 @@ const About = () => {
           chance to work with some big Swedish artists such as Felix Sandman,
           Molly Hammar and Myra Granberg. In 2019 though, for me, the music
           became just another job, and to preserve the fun in music I made the
-          decision to do something else and go into development. Happily it led
-          me to the frontend world. I started out studying frontend development
-          at IT-Högskolan in Stockholm. It felt quite creative and still hugely
-          demanded on the market which was kind of what I was looking for when
-          deciding on what way to go. In frontend development I get the ultimate
-          stimuli by taking a great design and turning it into a living thing.
+          decision to do something else and go into development. I still keep
+          active in music by building acoustic guitars in my free time though.
+          Happily it led me to the frontend world. I started out studying
+          frontend development at IT-Högskolan in Stockholm. It felt quite
+          creative and still hugely demanded on the market which was kind of
+          what I was looking for when deciding on what way to go. In frontend
+          development I get the ultimate stimuli by taking a great design and
+          turning it into a living thing.
           <br />
           Now I’ve gotten to explore this world for a while by replacing cars
           for electric vehicles on Vässla and taking the public TV-entertainment
