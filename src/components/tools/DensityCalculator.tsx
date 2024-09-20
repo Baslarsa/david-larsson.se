@@ -42,7 +42,7 @@ const DensityCalculator = () => {
           <TextInput
             containerClassName="w-full"
             type="text"
-            title="Weight in grams"
+            title="Weight"
             id="weight"
             name="weight"
             value={weight}
@@ -53,34 +53,34 @@ const DensityCalculator = () => {
           <TextInput
             containerClassName="w-full"
             type="text"
-            title="Length in mm"
+            title="Length"
             id="length"
             name="length"
             value={length}
             onChange={handleLengthChange}
-            placeHolder="Length in centimeters"
+            placeHolder="Length in mm"
           />
 
           <TextInput
             containerClassName="w-full"
             type="text"
-            title="Width in mm"
+            title="Width"
             id="width"
             name="width"
             value={width}
             onChange={handleWidthChange}
-            placeHolder="Width in centimeters"
+            placeHolder="Width in mm"
           />
 
           <TextInput
             containerClassName="w-full"
             type="text"
-            title="Height in mm"
+            title="Height"
             id="height"
             name="height"
             value={height}
             onChange={handleHeightChange}
-            placeHolder="Height in centimeters"
+            placeHolder="Height in mm"
           />
         </div>
         <div className="flex flex-1 items-center pb-6 px-6">
