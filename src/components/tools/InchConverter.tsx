@@ -7,12 +7,12 @@ import { valueMaxDecimals } from "../../utils/number";
 const InchConverter = () => {
   const inchInMm = 25.4;
   const [mode, setMode] = useState<"decimal" | "fractional">("decimal");
-  const [inches, setInches] = useState(0);
-  const [millimeters, setMillimeters] = useState(0);
-  const [totalFractions, setTotalFractions] = useState(0);
-  const [fractions, setFractions] = useState(0);
+  const [inches, setInches] = useState<number | undefined>(0);
+  const [millimeters, setMillimeters] = useState<number | undefined>(0);
+  const [totalFractions, setTotalFractions] = useState<number | undefined>(0);
+  const [fractions, setFractions] = useState<number | undefined>(0);
   // Convert inches to millimiters both in decimal and fractional
-  const inchesInMm = inches * inchInMm;
+  const inchesInMm = inches || 0 * inchInMm;
 
   const handleInchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value);
@@ -23,19 +23,19 @@ const InchConverter = () => {
 
     const roundedInches = valueMaxDecimals(roundedMm / inchInMm);
 
-    setInches(roundedInches);
-    setMillimeters(roundedMm);
+    setInches(roundedInches || undefined);
+    setMillimeters(roundedMm || undefined);
   };
   const handleMillimeterChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = Number(event.target.value);
-    const newInches = value / inchInMm;
+    const newInches = Number(value) / inchInMm;
     // maximum three decimals
     const roundedInches = valueMaxDecimals(newInches);
 
-    setMillimeters(value);
-    setInches(roundedInches);
+    setMillimeters(value || undefined);
+    setInches(roundedInches || undefined);
     setFractions(0);
     setTotalFractions(0);
   };
@@ -45,21 +45,21 @@ const InchConverter = () => {
     const newTotalFraction = Number(event.target.value);
     const fractionalInchParts = inchInMm / newTotalFraction;
     const multiplier = fractions;
-    const fractialValue = fractionalInchParts * multiplier;
+    const fractialValue = fractionalInchParts * (multiplier || 0);
     const mm = inchesInMm + fractialValue;
 
-    setTotalFractions(Number(event.target.value));
-    setMillimeters(valueMaxDecimals(mm));
+    setTotalFractions(Number(event.target.value) || undefined);
+    setMillimeters(valueMaxDecimals(mm) || undefined);
   };
   const handleFractionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newFractions = Number(event.target.value);
-    const fractionalInchParts = inchInMm / totalFractions;
+    const fractionalInchParts = inchInMm / (totalFractions || 0);
     const multiplier = newFractions;
     const fractialValue = fractionalInchParts * multiplier;
     const mm = inchesInMm + fractialValue;
 
-    setFractions(Number(newFractions));
-    setMillimeters(valueMaxDecimals(mm));
+    setFractions(Number(newFractions) || undefined);
+    setMillimeters(valueMaxDecimals(mm) || undefined);
   };
 
   const handleModeSwitch = (checked: boolean) => {
@@ -86,8 +86,10 @@ const InchConverter = () => {
         <div className="flex gap-4 items-center">
           <TextInput
             containerClassName="max-w-20"
-            type="number"
+            type="text"
             title="Inches"
+            id="inches"
+            name="inches"
             value={inches}
             onChange={handleInchChange}
             placeHolder="Inches"
@@ -96,8 +98,10 @@ const InchConverter = () => {
             <div className="flex gap-4 items-center">
               <TextInput
                 containerClassName="max-w-20"
-                type="number"
+                type="text"
                 title="Fraction"
+                id="fraction"
+                name="fraction"
                 value={fractions}
                 onChange={handleFractionChange}
                 placeHolder="Fraction"
@@ -105,7 +109,9 @@ const InchConverter = () => {
               /
               <TextInput
                 containerClassName="max-w-20"
-                type="number"
+                type="text"
+                id="totalFraction"
+                name="totalFraction"
                 title="Parts"
                 value={totalFractions}
                 onChange={handleTotalFractionChange}
@@ -117,8 +123,10 @@ const InchConverter = () => {
         <Paragraph className="mt-4 font-bold">Millimeters</Paragraph>
         <TextInput
           containerClassName="max-w-20"
-          type="number"
+          type="text"
           title="Mm"
+          id="mm"
+          name="mm"
           value={millimeters}
           onChange={handleMillimeterChange}
           placeHolder="mm"

@@ -4,6 +4,7 @@ import Paragraph from "../components/text/Paragraph";
 import InchConverter from "../components/tools/InchConverter";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import FretCalculator from "../components/tools/FretCalculator";
+import DensityCalculator from "../components/tools/DensityCalculator";
 
 type Tool = {
   id: number;
@@ -25,6 +26,12 @@ const TOOLS = [
     description: "Calculates the fret spacing for guitars",
     component: <FretCalculator />,
   },
+  {
+    id: 3,
+    title: "Density Calculator",
+    description: "Calculates the density of a material",
+    component: <DensityCalculator />,
+  },
 ];
 export default function ToolBox() {
   const [selectedTool, setSelectedTool] = useState<Tool | null>(null);
@@ -45,11 +52,11 @@ export default function ToolBox() {
         )}
       </div>
       <div className="pb-4">
-        <PageTitle title={`Tools`} />
-        <Paragraph className="mt-6">
-          This is a place where I keep tools, calculators and utilities that I
-          use in my daily life and while building acoustic guitars. Mostly while
-          building guitars :)
+        <PageTitle title={selectedTool ? selectedTool.title : "Tools"} />
+        <Paragraph className="my-6">
+          {selectedTool
+            ? selectedTool.description
+            : "This is a place where I keep tools, calculators and utilities that I use in my daily life and while building acoustic guitars. Mostly while building guitars :)"}
         </Paragraph>
       </div>
 

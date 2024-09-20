@@ -1,23 +1,30 @@
 import classNames from "../../utils/classNames";
+import Paragraph from "../text/Paragraph";
 
 const TextInput = ({
   title,
   value,
   type = "text",
   onChange,
+  id,
+  error,
+  name,
   placeHolder,
   inputClassName,
   containerClassName,
   labelClassName,
 }: {
   title: string;
-  value: string | number;
+  id: string;
+  name: string;
+  value: string | number | undefined;
   type: "text" | "number";
   placeHolder: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   inputClassName?: string;
   containerClassName?: string;
   labelClassName?: string;
+  error?: string;
 }) => {
   return (
     <div className={classNames(containerClassName, "relative")}>
@@ -32,8 +39,8 @@ const TextInput = ({
       </label>
       <input
         onChange={onChange}
-        id={title}
-        name={title}
+        id={id}
+        name={name}
         value={value}
         type={type}
         placeholder={placeHolder}
@@ -42,6 +49,7 @@ const TextInput = ({
           "block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
         )}
       />
+      <Paragraph className="text-red-500">{error}</Paragraph>
     </div>
   );
 };

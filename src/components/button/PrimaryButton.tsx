@@ -5,16 +5,19 @@ export default function PrimaryButton({
   label,
   type,
   onClick,
+  className,
 }: {
   label: string;
   type: "button" | "submit" | "reset" | undefined;
   onClick?: () => void;
+  className?: string;
 }) {
   return (
     <Button
       type={type}
       onClick={onClick}
       className={classNames(
+        className,
         "group dark:bg-offBlack relative z-20 hover:text-offWhite dark:hover:text-offBlack dark:text-offWhite text-offBlack bg-offWhite border border-offBlack dark:border-offWhite px-4 py-2"
       )}
     >
